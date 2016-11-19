@@ -1,0 +1,21 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+
+# Setup
+title:               Madrus's Webdings
+tagline:             'This is a tagline'
+description:         > # The personal blog of Madrus (Andre Roussakoff)
+url:                 ''
+baseurl:             '/bloglet'
+paginate:            5
+
+# About/contact
+author:
+  name:              Andre Roussakoff
+  url:               http://www.madrus.nl
+  email:             madrus@gmail.com
+
+# Custom vars
+version:             0.1.0
