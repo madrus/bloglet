@@ -1,21 +1,31 @@
 ---
 layout: post
 title: Deploying Umbraco 7 to GoDaddy
+date: 2016-11-19
+published: true
+categories:
+  - umbraco
+tags:
+  - umbraco
+  - deployment
+  - godaddy
+  - tutorial
+  - walk-through
 ---
 
-> __<span style="color:#ac4142;">TL;DR --</span>__ I have seen a number of posts on [Umbraco forum][umbraco-forum] with questions about deployment to [GoDaddy][godaddy] hosting provider. Many of them stayed either unresolved or the author would give up trying and switch to another hosting provider.
+> **<span style="color:#ac4142;">TL;DR --</span>** I have seen a number of posts on [Umbraco forum][umbraco-forum] with questions about deployment to [GoDaddy][godaddy] hosting provider. Many of them stayed either unresolved or the author would give up trying and switch to another hosting provider.
 >
-> In this article, I share my personal experience with GoDaddy deployment. It is a __deployment walkthrough__ of my Umbraco webprojects to GoDaddy's hosting space. I hope that following these steps, you also succeed in deploying your website to GoDaddy (and, by the way, many other hosting providers).
+> In this article, I share my personal experience with GoDaddy deployment. It is a **deployment walk-though** of my Umbraco webprojects to GoDaddy's hosting space. I hope that following these steps, you also succeed in deploying your website to GoDaddy (and, by the way, many other hosting providers).
 
 ### Why bother?
 
-Some time ago, I was looking for a hosting provider for my the Umbraco website I was working on. __GoDaddy__ seemed to be a good condidate. They provided the __Web Deploy Publishing Settings__ file that I could use in my Visual Studio 2015 to publish my website to their cloud similar to publishing to Microsoft Azure. I have had experience with Azure and was easy to deploy, so I decided to give it a try.
+Some time ago, I was looking for a hosting provider for my the Umbraco website I was working on. **GoDaddy** seemed to be a good condidate. They provided the **Web Deploy Publishing Settings** file that I could use in my Visual Studio 2015 to publish my website to their cloud similar to publishing to Microsoft Azure. I have had experience with Azure and was easy to deploy, so I decided to give it a try.
 
-Unfortunately, deployment in this classic fashion failed on me time after time. I tried to follow the standard Visual Studio 2015 __Web Deploy procedure__ (sent to me by a friendly __GoDaddy__ rep):
+Unfortunately, deployment in this classic fashion failed on me time after time. I tried to follow the standard Visual Studio 2015 **Web Deploy procedure** (sent to me by a friendly **GoDaddy** rep):
 
 1.  Open your application in Visual Studio and go to `View > Other Windows > Solution Explorer`.
 2.  Right click on the website name and select `Publish Website`.
-3.  Click the `Import button` and browse for the configuration file downloaded from __Plesk__.
+3.  Click the `Import button` and browse for the configuration file downloaded from **Plesk**.
 4.  Enter the primary FTP password for the Plesk hosting account.
 5.  Click `Validate Connection` to confirm you have the correct settings.
 
@@ -29,22 +39,22 @@ When I clicked on the `Publish` button at the bottom, I would get this error eve
 
 I must add that I would also get the same error when I clicked on the blue `Preview database` link although the connection itself would successfully validate.
 
-I don't need to explain that contacting GoDaddy as the __server administrator__ brought nothing satisfying. They just pushed the responsibility back to __Umbraco Service Desk__.
+I don't need to explain that contacting GoDaddy as the **server administrator** brought nothing satisfying. They just pushed the responsibility back to **Umbraco Service Desk**.
 
-At some point, I gave up on the classic "one-click" Web Deployment and started experimenting. Hereunder, I describe the __solution__ I have found and still use every time. It only takes me about two minutes each time.
+At some point, I gave up on the classic "one-click" Web Deployment and started experimenting. Hereunder, I describe the **solution** I have found and still use every time. It only takes me about two minutes each time.
 
 ### Assumptions
 
-1.  __Visual Studio 2015 Professional__. You could probably also use its Community Editon, if it has __SQL Server Object Explorer__ in it. You have to run Visual Studio as __Administrator__, which is necessary in order to be able to Publish.
-2.  You have a __working solution__ that shows the website when you run it e.g. with  `Ctrl-F5`.
-3.  If you don't have or don't want to use Visual Studio, you can deploy the files to GoDaddy via any __FTP client__, e.g. Mozilla's Filezilla.
-4.  __IIS7__. I use it to deploy locally first as my test deployment before publishing to GoDaddy. It is also handy if you are using both the Visual Studio and a separate FTP-client because you can copy (most of the) files of the local website to GoDaddy. (there are a couple of exceptions here)
+1.  **Visual Studio 2015 Professional**. You could probably also use its Community Editon, if it has **SQL Server Object Explorer** in it. You have to run Visual Studio as **Administrator**, which is necessary in order to be able to Publish.
+2.  You have a **working solution** that shows the website when you run it e.g. with  `Ctrl-F5`.
+3.  If you don't have or don't want to use Visual Studio, you can deploy the files to GoDaddy via any **FTP client**, e.g. Mozilla's Filezilla.
+4.  **IIS7**. I use it to deploy locally first as my test deployment before publishing to GoDaddy. It is also handy if you are using both the Visual Studio and a separate FTP-client because you can copy (most of the) files of the local website to GoDaddy. (there are a couple of exceptions here)
 
 ### Debug and Release
 
-__(Web) deployment__ can be done individually for each environment: e.g. Debug and Release. If necessary, one could create a new environment via __Configuration Manager__. For each environment, we need to configure the corresponding `Web.config` file.
+**(Web) deployment** can be done individually for each environment: e.g. Debug and Release. If necessary, one could create a new environment via **Configuration Manager**. For each environment, we need to configure the corresponding `Web.config` file.
 
-Before deployment, it is necessary to stop the corresponding __application pool__ and restart it again after deployment is finished.
+Before deployment, it is necessary to stop the corresponding **application pool** and restart it again after deployment is finished.
 
 Here are the examples of these files for Debug and Release.
 
@@ -108,11 +118,11 @@ Here are the examples of these files for Debug and Release.
 </configuration>
 ```
 
-> __IMPORTANT__
+> **IMPORTANT**
 >
 > The transformations should reflect the targets of deployment, not the sources.
 
-When creating publish profiles, it may be necessary to add the `AutoParameterizationWebConfigConnectionStrings` key,  otherwise `Publish` may fail. (See the __FAQ section__.) For the local deployment to the localhost, you may choose to create the database with the __same name__ as on GoDaddy and with the same user. Then with local deployment, we can deploy the website and the database incrementally as necessary.
+When creating publish profiles, it may be necessary to add the `AutoParameterizationWebConfigConnectionStrings` key,  otherwise `Publish` may fail. (See the **FAQ section**.) For the local deployment to the localhost, you may choose to create the database with the **same name** as on GoDaddy and with the same user. Then with local deployment, we can deploy the website and the database incrementally as necessary.
 
 Here are my web deployment settings for local deployment:
 
@@ -128,7 +138,7 @@ And these are the settings for the deployment to GoDaddy:
 
 Notice that the `Update database` is checked only for the local deployment and not that of GoDaddy. That is because I am getting an unspecified error on the `Preview database` link in the `Preview` tab, and GoDaddy did not want to help me with this error. So, instead of doing it via Web Deploy, I am using the `Data Comparison` option of the `SQL Server Object Explorer` and then `Update Target` to push the changes to the website database on GoDaddy's database server.
 
-> __NB__
+> **NB**
 >
 > It is still important though to have the proper database configuration in the `Web.Release.config` file. In this way, you don't have to change the deployed `Web.config` file and the remote website can connect to its database.
 
@@ -138,11 +148,11 @@ Here is the checklist of settings necessary for the deployment to `GoDaddy`:
 
 ### Deployment
 
-> __IMPORTANT__
+> **IMPORTANT**
 >
-> Make sure that Web.config is __UTF-8 without BOM__ encoded.
+> Make sure that Web.config is **UTF-8 without BOM** encoded.
 
-I usually use a separate __Development database__ database for my Visual Studio Umbraco solution than the one for the local IIS website (__Staging database__). The Local Web Deployment seems to only synchronize the database schema changes and sometimes fails to synchronize data. I am not 100% sure if this is so indeed, and I have not searched this out. Feel free to skip the separate database data synchronization step below if you believe it does. It is called "[Via data comparison, update the remote database](#via-data-comparison-update-the-remote-database)".
+I usually use a separate **Development database** database for my Visual Studio Umbraco solution than the one for the local IIS website (**Staging database**). The Local Web Deployment seems to only synchronize the database schema changes and sometimes fails to synchronize data. I am not 100% sure if this is so indeed, and I have not searched this out. Feel free to skip the separate database data synchronization step below if you believe it does. It is called "[Via data comparison, update the remote database](#via-data-comparison-update-the-remote-database)".
 
 ---
 
@@ -151,7 +161,7 @@ I usually use a separate __Development database__ database for my Visual Studio 
 *   commit all changes
 *   bump the label and label the production release
 *   via SQL Server Object Explorer do Data Comparison and update the the local madrus4u_ed4udb database
-*   switch to __Release__ mode in Visual Studio
+*   switch to **Release** mode in Visual Studio
 *   open the local IIS7 Manager and stop the relevant application pool
 *   publish to the local IIS
 *   if applicable, synchronize the data (see further) between the Dev and Staging databases.
@@ -164,12 +174,12 @@ I usually use a separate __Development database__ database for my Visual Studio 
 
 ### Preparations
 
-*   Start the Visual Studio as __Administrator__ and open your solution
-*   Switch to the __Release__ mode in your solution and build it to make sure everything is ok.
+*   Start the Visual Studio as **Administrator** and open your solution
+*   Switch to the **Release** mode in your solution and build it to make sure everything is ok.
 *   If you have not done so, commit your changes to Git and label your release.
 *   download `.user.ini` file from GoDaddy
 *   prepare `Web.config` for GoDaddy
-*   keep copies of `.user.ini` and `Web.config` separately just in case (see __FAQ__ section).
+*   keep copies of `.user.ini` and `Web.config` separately just in case (see **FAQ** section).
 
 ---
 
@@ -277,7 +287,7 @@ This step in only necessary from time to time, e.g. when you make changes in you
 
     ![stopped the iis application pool][stopped-iis]
 
-*   __Congratulations!__ You are now up and running. Refresh the screen with 503 error. Don't be surprised if the first time, immediately after starting or recycling the IIS application pool, you will have to wait - literally - maybe five minutes before the website loads. After that it loads in a breeze.
+*   **Congratulations!** You are now up and running. Refresh the screen with 503 error. Don't be surprised if the first time, immediately after starting or recycling the IIS application pool, you will have to wait - literally - maybe five minutes before the website loads. After that it loads in a breeze.
 
 ---
 
@@ -318,11 +328,11 @@ and add the following key to the `PropertyGroup` section:
 
 ### Access denied when doing local (file) deployment
 
-You probably forgot to start Visual Studio as __Administrator__.
+You probably forgot to start Visual Studio as **Administrator**.
 
 ### Fix
 
-Start Visual Studio as __Administrator__ and try again.
+Start Visual Studio as **Administrator** and try again.
 
 ---
 
@@ -340,7 +350,7 @@ Access rights on `App_Data` directory.
 
 ### Some further observations
 
-*   most of the steps here are actually __not GoDaddy specific__ (except the look-and-feel of course). I have used the same approach also with some other web hosting companies.
+*   most of the steps here are actually **not GoDaddy specific** (except the look-and-feel of course). I have used the same approach also with some other web hosting companies.
 
 *   if you can't deploy to your hosting provider directly from the Visual Studio (no access available) but your hosting provider has a file upload option in their control panel, you can first deploy locally to some directory. Replace the local Web.config with the one necessary for the remote web hosting environment, and then upload the whole directory. But don't forget to synchronize the database data.
 
@@ -352,7 +362,7 @@ Access rights on `App_Data` directory.
 
 ### Final words
 
-I would be very glad to know if this walkthrough really helped somebody to deploy their website to GoDaddy. Please, leave your comment to let me know.
+I would be very glad to know if this walk-though really helped somebody to deploy their website to GoDaddy. Please, leave your comment to let me know.
 
 Any comments are more than welcome as I have never had a chance to discuss this document with anybody.
 

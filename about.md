@@ -4,27 +4,21 @@ title: About
 ---
 
 <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
+  Hey there! Welcome to my BLOG! If you are wondering w.t.f. those <strong>Webdings</strong> are, read on!
 </p>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+So, here is what they are. In Dutch, a thing is a **ding**. And I live in Amsterdam. I thought it would be fun to call my personal notes on all the things web as **Webdings**.
 
-There are currently two themes built on Poole:
+I have taken the idea of this blog website from **[Jekyll](https://jekyllrb.com/)** blog generator ornated with a **[Lanyon theme](http://lanyon.getpoole.com)**:
 
-*   [Hyde](http://hyde.getpoole.com)
-*   [Lanyon](http://lanyon.getpoole.com)
-
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
+<h3>
+  <strong>Setup</strong>
+</h3>
 
 Some fun facts about the setup of this project include:
 
 *   Built for [Jekyll](http://jekyllrb.com)
 *   Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-*   Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-*   Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
+*   Coded with [Atom](https://atom.io/), a code editor that sometimes rocks
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+Happy reading and happy coding!

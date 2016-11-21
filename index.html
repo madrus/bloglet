@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home
+title: Blog
 ---
 
 <div class="posts">
@@ -11,13 +11,23 @@ title: Home
         {{ post.title }}
       </a>
     </h1>
-
     <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
+    {{ post.excerpt }}
   </div>
   {% endfor %}
 </div>
+
+{% assign cats = site.categories | sort %}
+{% for category in cats %}
+<h3>{{ category[0] }}</h3>
+<div class="categories">
+  {% for post in category[1] %}
+  <a href="{{ site.baseurl }}{{ post.url }}">
+    {{ post.title }}
+  </a>
+  {% endfor %}
+</div>
+{% endfor %}
 
 <div class="pagination">
   {% if paginator.next_page %}
@@ -25,6 +35,7 @@ title: Home
   {% else %}
     <span class="pagination-item older">Older</span>
   {% endif %}
+
   {% if paginator.previous_page %}
     {% if paginator.page == 2 %}
       <a class="pagination-item newer" href="{{ site.baseurl }}/">Newer</a>
