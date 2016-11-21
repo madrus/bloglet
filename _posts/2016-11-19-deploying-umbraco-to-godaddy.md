@@ -3,6 +3,7 @@ layout: post
 title: Deploying Umbraco 7 to GoDaddy
 date: 2016-11-19
 published: true
+comments: true # for Disqus
 categories:
   - umbraco
 tags:
@@ -369,30 +370,30 @@ Any comments are more than welcome as I have never had a chance to discuss this 
 
 [umbraco-forum]: https://our.umbraco.org/forum/
 [godaddy]: https://www.godaddy.com/
-[preview]: {{site.baseurl}}/public/images/20161119/preview.png
-[error]: {{site.baseurl}}/public/images/20161119/error.png
-[ldct]: {{site.baseurl}}/public/images/20161119/LocalWebDeployment-ConnectionTab.png
-[ldst]: {{site.baseurl}}/public/images/20161119/LocalWebDeployment-SettingsTab.png
-[gdct]: {{site.baseurl}}/public/images/20161119/GoDaddyWebDeployment-ConnectionTab.png
-[gdst]: {{site.baseurl}}/public/images/20161119/GoDaddyWebDeployment-SettingsTab.png
-[iis-pool]: {{site.baseurl}}/public/images/20161119/dedicated_iis_app_pool.png
-[stop-pool]: {{site.baseurl}}/public/images/20161119/stop_iis_app_pool.png
-[stopped-pool]: {{site.baseurl}}/public/images/20161119/stopped_iis_app_pool.png
-[start-schema]: {{site.baseurl}}/public/images/20161119/sql_server_object_explorer.png
-[target]: {{site.baseurl}}/public/images/20161119/schema_comparison_dialog.png
-[comparison]: {{site.baseurl}}/public/images/20161119/schema_comparison_run.png
-[start-data]: {{site.baseurl}}/public/images/20161119/sql_server_object_explorer.png
-[remote]: {{site.baseurl}}/public/images/20161119/sql_choose_finish.png
-[update]: {{site.baseurl}}/public/images/20161119/update_target.png
-[identical]: {{site.baseurl}}/public/images/20161119/update_target_identical.png
-[pubgdd]: {{site.baseurl}}/public/images/20161119/publish_to_godaddy.png
-[success]: {{site.baseurl}}/public/images/20161119/publish_success.png
-[unavailable]: {{site.baseurl}}/public/images/20161119/service_unavailable.png
-[file-mngr]: {{site.baseurl}}/public/images/20161119/file_manager.png
-[httpdocs]: {{site.baseurl}}/public/images/20161119/httpdocs.png
-[appdata]: {{site.baseurl}}/public/images/20161119/app_data.png
-[before]: {{site.baseurl}}/public/images/20161119/permissions_before.png
-[after]: {{site.baseurl}}/public/images/20161119/permissions_after.png
-[stopped-iis]: {{site.baseurl}}/public/images/20161119/stopped_iis_app_pool.png
-[server-error]: {{site.baseurl}}/public/images/20161119/server_error.png
-[profile]: {{site.baseurl}}/public/images/20161119/webdeploy.png
+[preview]: {{site.baseurl}}/assets/images/20161119/preview.png
+[error]: {{site.baseurl}}/assets/images/20161119/error.png
+[ldct]: {{site.baseurl}}/assets/images/20161119/LocalWebDeployment-ConnectionTab.png
+[ldst]: {{site.baseurl}}/assets/images/20161119/LocalWebDeployment-SettingsTab.png
+[gdct]: {{site.baseurl}}/assets/images/20161119/GoDaddyWebDeployment-ConnectionTab.png
+[gdst]: {{site.baseurl}}/assets/images/20161119/GoDaddyWebDeployment-SettingsTab.png
+[iis-pool]: {{site.baseurl}}/assets/images/20161119/dedicated_iis_app_pool.png
+[stop-pool]: {{site.baseurl}}/assets/images/20161119/stop_iis_app_pool.png
+[stopped-pool]: {{site.baseurl}}/assets/images/20161119/stopped_iis_app_pool.png
+[start-schema]: {{site.baseurl}}/assets/images/20161119/sql_server_object_explorer.png
+[target]: {{site.baseurl}}/assets/images/20161119/schema_comparison_dialog.png
+[comparison]: {{site.baseurl}}/assets/images/20161119/schema_comparison_run.png
+[start-data]: {{site.baseurl}}/assets/images/20161119/sql_server_object_explorer.png
+[remote]: {{site.baseurl}}/assets/images/20161119/sql_choose_finish.png
+[update]: {{site.baseurl}}/assets/images/20161119/update_target.png
+[identical]: {{site.baseurl}}/assets/images/20161119/update_target_identical.png
+[pubgdd]: {{site.baseurl}}/assets/images/20161119/publish_to_godaddy.png
+[success]: {{site.baseurl}}/assets/images/20161119/publish_success.png
+[unavailable]: {{site.baseurl}}/assets/images/20161119/service_unavailable.png
+[file-mngr]: {{site.baseurl}}/assets/images/20161119/file_manager.png
+[httpdocs]: {{site.baseurl}}/assets/images/20161119/httpdocs.png
+[appdata]: {{site.baseurl}}/assets/images/20161119/app_data.png
+[before]: {{site.baseurl}}/assets/images/20161119/permissions_before.png
+[after]: {{site.baseurl}}/assets/images/20161119/permissions_after.png
+[stopped-iis]: {{site.baseurl}}/assets/images/20161119/stopped_iis_app_pool.png
+[server-error]: {{site.baseurl}}/assets/images/20161119/server_error.png
+[profile]: {{site.baseurl}}/assets/images/20161119/webdeploy.png

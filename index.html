@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Blog
 ---
 
@@ -22,9 +22,9 @@ title: Blog
 <h3>{{ category[0] }}</h3>
 <div class="categories">
   {% for post in category[1] %}
-  <a href="{{ site.baseurl }}{{ post.url }}">
-    {{ post.title }}
-  </a>
+    <a href="{{ site.baseurl }}{{ post.url }}">
+      {{ post.title }}
+    </a>
   {% endfor %}
 </div>
 {% endfor %}
